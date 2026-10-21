@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sriporna Biswas · Portfolio</title>
+<meta name="description" content="Sriporna Biswas: Computer Science and Engineering graduate working on machine learning, explainable AI and AI for healthcare.">
+<meta name="author" content="Sriporna Biswas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an editor window. Left "explorer" lists sections as files; right pane is the open file. Blueprint blue + amber keyword accent. */
+:root{
+  --bg:#F4F6FA; --pane:#FFFFFF; --side:#EBEFF6; --fg:#141821; --muted:#5A6375; --line:#DCE2EC;
+  --accent:#2550D9; --kw:#B86A00; --str:#1F7A4D; --chip:#EEF2FC;
+  --display:"Sora","Segoe UI",system-ui,sans-serif;
+  --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F131B; --pane:#151B26; --side:#121823; --fg:#E7EBF3; --muted:#98A2B6; --line:#253044;
+  --accent:#7C9CFF; --kw:#F0B35A; --str:#6FD3A0; --chip:#1C2536; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F131B; --pane:#151B26; --side:#121823; --fg:#E7EBF3; --muted:#98A2B6; --line:#253044;
+  --accent:#7C9CFF; --kw:#F0B35A; --str:#6FD3A0; --chip:#1C2536; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+.shell{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 56px}
+.window{background:var(--pane);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.titlebar{display:flex;align-items:center;gap:14px;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--side);font-family:var(--mono);font-size:13px;color:var(--muted)}
+.dots{display:flex;gap:6px}.dots i{width:11px;height:11px;border-radius:50%;background:var(--line);display:block}
+.cols{display:grid;grid-template-columns:210px minmax(0,1fr)}
+aside{background:var(--side);border-right:1px solid var(--line);padding:18px 0;font-family:var(--mono);font-size:13.5px;position:sticky;top:0;align-self:start;min-height:100%}
+aside .label{padding:0 18px 8px;color:var(--muted);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase}
+aside a{display:block;padding:5px 18px;color:var(--fg);text-decoration:none}
+aside a span{color:var(--muted)}
+aside a:hover{background:var(--chip);color:var(--accent)}
+main{min-width:0;padding:36px 44px 48px;display:flex;flex-direction:column;gap:52px}
+section{scroll-margin-top:16px}
+.hero{display:flex;flex-direction:column;gap:14px}
+.comment{font-family:var(--mono);font-size:13.5px;color:var(--muted)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(38px,6.4vw,60px);line-height:1.04;margin:0;letter-spacing:-.02em;text-wrap:balance}
+.role{font-family:var(--mono);font-size:15px;margin:0}
+.role .k{color:var(--kw)} .role .s{color:var(--str)}
+.lede{max-width:64ch;margin:0;font-size:18px}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.links a{font-family:var(--mono);font-size:13.5px;text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:6px 12px;color:var(--fg);background:var(--pane)}
+.links a:hover{border-color:var(--accent);color:var(--accent)}
+.links a.primary{background:var(--accent);border-color:var(--accent);color:var(--pane)}
+.mail{font-family:var(--mono);font-size:13.5px;color:var(--muted)}
+h2{font-family:var(--display);font-weight:600;font-size:26px;margin:0 0 6px;text-wrap:balance}
+h2 + .comment{margin-bottom:18px}
+.list{display:flex;flex-direction:column;gap:14px}
+.card{border:1px solid var(--line);border-radius:8px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;background:var(--pane)}
+.card h3{font-family:var(--display);font-weight:600;font-size:18.5px;line-height:1.35;margin:0;text-wrap:balance}
+.meta{font-size:15px;color:var(--muted);margin:0}
+.card p{margin:0;max-width:70ch}
+.tag{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--kw)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:12.5px;background:var(--chip);border-radius:4px;padding:3px 8px;font-variant-numeric:tabular-nums}
+.chip b{font-weight:500;color:var(--accent)}
+.lk{font-family:var(--mono);font-size:13.5px;display:flex;flex-wrap:wrap;gap:6px 18px}
+.lk a{overflow-wrap:anywhere}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:18px;padding:14px 0;border-top:1px solid var(--line)}
+.row:last-child{border-bottom:1px solid var(--line)}
+.when{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:3px;font-variant-numeric:tabular-nums}
+.row h3{font-size:17px;font-weight:600;margin:0}
+.row p,.row ul{margin:4px 0 0}.row ul{padding-left:18px}
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 28px}
+.skills h3{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0 0 4px}
+.skills p{margin:0}
+.certs{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+footer{font-family:var(--mono);font-size:13px;color:var(--muted)}
+@media (max-width:800px){
+  .cols{grid-template-columns:minmax(0,1fr)}
+  aside{position:static;border-right:0;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;padding:10px 8px}
+  aside .label{display:none}
+  aside a{padding:4px 10px}
+  main{padding:26px 18px 36px;gap:40px}
+  .grid2,.skills{grid-template-columns:minmax(0,1fr)}
+  .row{grid-template-columns:minmax(0,1fr);gap:2px}
+}
+@media print{
+  @page{size:A4;margin:12mm 0}
+  .shell{padding:0 12mm;max-width:none}
+  aside,.titlebar{display:none}
+  .cols{grid-template-columns:minmax(0,1fr)}
+  .window{border:0}
+  main{padding:0;gap:28px}
+  .card,.row,.hero{break-inside:avoid}
+  h2{break-after:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="shell">
+<div class="window">
+  <div class="titlebar"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><span>~/sriporna-biswas/portfolio</span></div>
+  <div class="cols">
+    <aside aria-label="Sections">
+      <div class="label">Explorer</div>
+      <a href="#about">about<span>.md</span></a>
+      <a href="#research">research<span>/</span></a>
+      <a href="#experience">experience<span>.log</span></a>
+      <a href="#projects">projects<span>/</span></a>
+      <a href="#leadership">leadership<span>.md</span></a>
+      <a href="#skills">skills<span>.json</span></a>
+      <a href="#certifications">certifications<span>/</span></a>
+      <a href="#education">education<span>.md</span></a>
+      <a href="#contact">contact<span>.sh</span></a>
+    </aside>
+    <main>
+      <section id="about" class="hero">
+        <div class="comment">// Computer Science &amp; Engineering · Chandigarh University</div>
+        <h1>Sriporna Biswas</h1>
+        <p class="role"><span class="k">focus</span> = [<span class="s">"machine learning"</span>, <span class="s">"explainable AI"</span>, <span class="s">"AI for healthcare"</span>]</p>
+        <p class="lede">Computer Science and Engineering graduate who builds machine-learning systems for real-world data, from biomedical gene expression and single-cell transcriptomics to text, audio and decentralised applications. I care about models that are validated properly, explained clearly and released as reproducible code.</p>
+        <div class="links">
+          <a class="primary" href="https://github.com/12345sri">GitHub</a>
+          <a href="https://www.linkedin.com/in/sriporna-biswas-7062a4294/">LinkedIn</a>
+          <a href="https://orcid.org/0009-0009-6683-5477">ORCID</a>
+          <a href="https://bioxai-research-lab.streamlit.app/">BioXAI Research Lab</a>
+        </div>
+        <div class="mail">sripornab13@gmail.com</div>
+      </section>
+
+      <section id="research">
+        <h2>Research</h2>
+        <div class="comment">// publications, preprints and a patent application</div>
+        <div class="list">
+          <article class="card">
+            <div class="tag">First author · Preprint submitted to bioRxiv, 2026</div>
+            <h3>An Interpretable Machine Learning Framework for Early- versus Late-Stage Classification of Breast Cancer from Gene Expression, with Co-expression Network Analysis</h3>
+            <p class="meta">Sriporna Biswas, Tanjidul Huda</p>
+            <p>TCGA-BRCA RNA-seq from UCSC Xena, a 65-gene a priori panel and four classifiers (logistic regression, SVM, random forest, gradient boosting) trained with leakage-safe preprocessing, SMOTE inside the folds, bootstrap confidence intervals, DeLong tests, permutation importance and a co-expression network.</p>
+            <div class="chips"><span class="chip">tumours <b>1,075</b></span><span class="chip">test ROC-AUC <b>0.618</b></span><span class="chip">95% CI <b>0.530–0.704</b></span></div>
+            <div class="lk"><a href="https://doi.org/10.5281/zenodo.23456699">doi.org/10.5281/zenodo.23456699</a><a href="https://github.com/12345sri/breast-cancer-stage-ml-tcga">GitHub repository</a></div>
+          </article>
+          <article class="card">
+            <div class="tag">Second author · Manuscript, 2026</div>
+            <h3>Integrative Single-Cell Transcriptomics and Explainable AI for Disease Mechanism and Biomarker Discovery in Triple-Negative Breast Cancer</h3>
+            <p class="meta">Tanjidul Huda, Sriporna Biswas</p>
+            <p>XGBoost with whole-sample (grouped) cross-validation and a quality-control baseline, SHAP on held-out samples, pseudobulk differential expression and GSEA on 15,294 single-cell transcriptomes (GEO GSE329526).</p>
+            <div class="chips"><span class="chip">held-out AUC <b>0.92</b></span><span class="chip">QC-only AUC <b>0.63</b></span><span class="chip">genes tested <b>11,727</b></span></div>
+            <div class="lk"><a href="https://doi.org/10.5281/zenodo.23494607">doi.org/10.5281/zenodo.23494607</a><a href="https://github.com/tanjidnijum02/tnbc-invasion-scrna-xai">GitHub repository</a></div>
+          </article>
+          <article class="card">
+            <div class="tag">First author · AIP Conference Proceedings, 2025</div>
+            <h3>From Brain to Machine: Leveraging Neuromorphic Computing for Improved System Efficiency</h3>
+            <p class="meta">Biswas S, Khastagir M, Hasan MM, Reshma · AIP Conf Proc. 2025;3343(1):030012</p>
+            <div class="lk"><a href="https://pubs.aip.org/aip/acp/article-abstract/3343/1/030012/3370392/From-brain-to-machine-Leveraging-neuromorphic">Read the paper (AIP Publishing)</a></div>
+          </article>
+          <article class="card">
+            <div class="tag">Co-author · In press</div>
+            <h3>Federated Learning: A Paradigm Shift for Data Privacy and Decentralized AI</h3>
+            <p class="meta">Khastagir M, Biswas S, Hasan MM, Gazi MM, Reshma</p>
+          </article>
+          <article class="card">
+            <div class="tag">Patent application No. 202611057941 · Filed 2026</div>
+            <h3>Sleep-Talking Pattern Classifier for Emotional &amp; Cognitive State Analysis</h3>
+            <p class="meta">Khastagir M, Biswas S, Hasan MM</p>
+            <p>A privacy-preserving edge-AI system that analyses sleep talking on-device, combining speech, emotion and cognitive-state recognition with beamforming audio capture, NLP and sleep-stage correlation, with no cloud processing.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="comment">// git log --oneline --reverse</div>
+        <div>
+          <div class="row">
+            <div class="when">Jan 2026 – present</div>
+            <div>
+              <h3>AI &amp; Biomedical Research Intern · Rapture Biotech International Pvt. Ltd., Noida</h3>
+              <ul>
+                <li>Completed two machine-learning research projects in cancer genomics, each written up as a full manuscript with public code.</li>
+                <li>Built leakage-safe Python and scikit-learn pipelines with cross-validated tuning, out-of-fold threshold selection, bootstrap CIs and DeLong tests.</li>
+                <li>Applied XGBoost with grouped cross-validation and SHAP; found and corrected data leakage and pseudoreplication in an earlier analysis.</li>
+                <li>Released code with versioned Zenodo DOIs, MIT licence and citation metadata.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="when">May – Aug 2024</div>
+            <div>
+              <h3>Blockchain Development Intern · Metacrafters (remote, New York, USA)</h3>
+              <ul>
+                <li>Developed blockchain applications and smart contracts in Solidity.</li>
+                <li>Designed scalable solutions for decentralised systems and collaborated on open-source projects with Git.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="comment">// selected repositories</div>
+        <div class="grid2">
+          <article class="card">
+            <h3>Sentiment Analysis with Machine Learning</h3>
+            <p>NLP pipeline with text preprocessing and TF-IDF; compared logistic regression, linear SVC, KNN and multinomial naive Bayes on 20,000+ labelled social-media comments.</p>
+            <div class="chips"><span class="chip">test accuracy <b>84.9%</b></span><span class="chip">Python · NLTK · scikit-learn</span></div>
+            <div class="lk"><a href="https://github.com/12345sri/Sentiment-Analysis-Using-Machine-Learning">GitHub</a></div>
+          </article>
+          <article class="card">
+            <h3>Blockchain Student Admission System</h3>
+            <p>Ethereum smart contracts for applications, admission records and verification, with role-based access and immutable record storage.</p>
+            <div class="chips"><span class="chip">Solidity · Web3.js · React · Node.js · MongoDB</span></div>
+            <div class="lk"><a href="https://github.com/12345sri/Blockchain-Student-Admission-System">GitHub</a></div>
+          </article>
+          <article class="card">
+            <h3>Smart Load Carriage System</h3>
+            <p>Machine-learning analysis of load distribution with clustering, preprocessing and model testing to reduce carrying effort.</p>
+            <div class="chips"><span class="chip">Python · clustering · data analysis</span></div>
+            <div class="lk"><a href="https://github.com/12345sri/Smart-Load-Carriage-System">GitHub</a></div>
+          </article>
+          <article class="card">
+            <h3>Interactive Bresenham Line-Drawing Tool</h3>
+            <p>Computer-graphics application with mouse-based point selection, colour options and real-time pixel rendering of Bresenham's algorithm.</p>
+            <div class="chips"><span class="chip">C++ · graphics.h</span></div>
+            <div class="lk"><a href="https://github.com/12345sri/Bresenham-Line-Drawing-Algorithm">GitHub</a></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="leadership">
+        <h2>Leadership</h2>
+        <div class="comment">// building in public</div>
+        <div class="list">
+          <article class="card">
+            <div class="tag">Co-founder &amp; developer · 2026</div>
+            <h3>BioXAI Research Lab</h3>
+            <p>An interactive research web application, built in Python and Streamlit and deployed publicly, that turns bioinformatics and explainable-AI research into a browser-based tool students and researchers can use without writing code.</p>
+            <div class="lk"><a href="https://bioxai-research-lab.streamlit.app/">bioxai-research-lab.streamlit.app</a></div>
+          </article>
+          <article class="card">
+            <div class="tag">Open source · 2026</div>
+            <h3>Open-source research portfolio</h3>
+            <p>Public GitHub repositories with documented, reproducible notebooks, scripts and results, archived with DOIs.</p>
+            <div class="lk"><a href="https://github.com/12345sri">github.com/12345sri</a></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+          <div><h3>Programming</h3><p>Python, C/C++, Java, SQL, Solidity</p></div>
+          <div><h3>Machine learning &amp; AI</h3><p>scikit-learn, XGBoost, SHAP, NLP (TF-IDF, NLTK), cross-validation, imbalanced learning (SMOTE)</p></div>
+          <div><h3>Data</h3><p>pandas, NumPy, Matplotlib, TCGA and GEO genomic data</p></div>
+          <div><h3>Tools</h3><p>Git and GitHub, Zenodo, VS Code, Jupyter, Google Colab, Streamlit</p></div>
+        </div>
+      </section>
+
+      <section id="certifications">
+        <h2>Certifications</h2>
+        <ul class="certs">
+          <li><a href="https://www.coursera.org/account/accomplishments/verify/8JY5LM4HW33N">Introduction to Machine Learning with Python</a>, Arizona State University</li>
+          <li><a href="https://www.coursera.org/account/accomplishments/verify/DM6DS6F9M6WZ">Introduction to Artificial Intelligence</a>, IBM</li>
+          <li><a href="https://www.coursera.org/account/accomplishments/verify/CWHWJWJ7WPUQ">Databases and SQL for Data Science with Python</a>, IBM</li>
+          <li><a href="https://www.coursera.org/account/accomplishments/verify/YG1EIYI8190B">Web Application Technologies and Django</a>, University of Michigan</li>
+          <li><a href="https://www.coursera.org/account/accomplishments/verify/ZZKLEBV5BC2A">Introduction to Deep Learning &amp; Neural Networks with Keras</a>, IBM</li>
+          <li>Aspire Leaders Program, Aspire Institute (Massachusetts, USA), Jun – Aug 2025</li>
+        </ul>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div>
+          <div class="row"><div class="when">2022 – 2026</div><div><h3>Bachelor of Engineering, Computer Science and Engineering · Chandigarh University, Punjab</h3><p>First Class</p></div></div>
+          <div class="row"><div class="when">2019 – 2021</div><div><h3>Higher Secondary Certificate (Science) · Manikganj Govt. Mohila College</h3><p>GPA 4.42 / 5.00</p></div></div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p style="margin:0">Email <span class="mail">sripornab13@gmail.com</span> · <a href="https://www.linkedin.com/in/sriporna-biswas-7062a4294/">LinkedIn</a> · <a href="https://orcid.org/0009-0009-6683-5477">ORCID 0009-0009-6683-5477</a> · <a href="https://github.com/12345sri">github.com/12345sri</a></p>
+      </section>
+      <footer>Punjab, India</footer>
+    </main>
+  </div>
+</div>
+</div>
+</body>
+</html>
